@@ -10,18 +10,25 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 @Data
+//Entity annotation defines that a class can be mapped to a table
 @Entity
+//@Table annotation defines name of the table
 @Table(name = "student")
 public class Student {
-
+     
+	//Spring Data JPA focuses on using JPA to store data in a relational database
+	//JPA's ORM mapping converts object-oriented Java code to the back-end database
+	
+	//@Id annotation specifies the primary key of an entity
 	@Id
+	//@GeneratedValue - Provides for the specification of generation strategies for the values of primary keys. 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public long id;
 	
-	@Column(name = "name")
-	public String name;
-	@Column(name = "age")
-	public int age;
+	@Column(name = "firstName")
+	public String firstName;
+	@Column(name = "lastName")
+	public String lastName;
 	@Column(name= "email")
 	public String email;
 
@@ -30,45 +37,41 @@ public class Student {
     public Student(){
     	
     }
-	
 
-
-
-     
-
-	public Student(long id, String name, int age, String email) {
+//Constructor
+	public Student(long id, String firstName, String lastName, String email) {
 		
 		this.id = id;
-		this.name = name;
-		this.age = age;
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.email = email;
 	}
 
 
 
 
-
+//getters and setters
 
 	public String getName() {
-		return name;
+		return firstName;
 	}
 
 
 
-	public void setName(String name) {
-		this.name = name;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
 
 
-	public int getAge() {
-		return age;
+	public String getLastName() {
+		return lastName;
 	}
 
 
 
-	public void setAge(int age) {
-		this.age = age;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 
