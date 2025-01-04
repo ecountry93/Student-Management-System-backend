@@ -10,7 +10,7 @@ import com.example.demo.Repository.StudentRepository;
 // @Service annotation is used with classes
 //that provide some business functionalities or business logic
 @Service
-public class StudentServiceImpl {
+public class StudentServiceImpl implements StudentService{
 	
 	//dependency injection
 	public StudentRepository repo;
@@ -43,7 +43,7 @@ public class StudentServiceImpl {
 		//Updates files in the database
 		Student existingStudent = repo.findById(id).orElseThrow(null);
 		
-		existingStudent.setFirstName(student.getName());
+		existingStudent.setFirstName(student.getFirstName());
 		existingStudent.setLastName(student.getLastName());
 		existingStudent.setEmail(student.getEmail());
 	    repo.save(existingStudent);

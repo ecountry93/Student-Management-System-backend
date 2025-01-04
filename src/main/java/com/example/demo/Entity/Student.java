@@ -9,7 +9,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
 
-@Data
 //Entity annotation defines that a class can be mapped to a table
 @Entity
 //@Table annotation defines name of the table
@@ -23,6 +22,7 @@ public class Student {
 	@Id
 	//@GeneratedValue - Provides for the specification of generation strategies for the values of primary keys. 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
 	public long id;
 	
 	@Column(name = "firstName")
@@ -52,11 +52,17 @@ public class Student {
 
 //getters and setters
 
-	public String getName() {
-		return firstName;
+	public long getId() {
+		return id;
 	}
 
-
+	public void setId(long id) {
+		this.id = id;
+	} 
+	
+	public String getFirstName() {
+		return firstName;
+	}
 
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
